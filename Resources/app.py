@@ -57,6 +57,7 @@ def stations():
     stations = list(np.ravel(results))
     return jsonify(stations=stations)
 
+# Add specific station temperatures
 @app.route("/api/v1.0/tobs")
 def temp_monthly():
     prev_year = dt.date(2017,8,23) - dt.timedelta(days=365)
@@ -66,6 +67,7 @@ def temp_monthly():
     temps = list(np.ravel(results))
     return jsonify(temps=temps)
 
+# Add  station temperatures for specified range
 @app.route("/api/v1.0/temp/<start>")
 @app.route("/api/v1.0/temp/<start>/<end>")
 def stats(start=None, end=None):
